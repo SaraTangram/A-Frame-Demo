@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Designer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="icon" href="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-32x32.png" sizes="32x32">
+    <link rel="icon" href="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon-precomposed" href="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-180x180.png">
+    <meta name="msapplication-TileImage" content="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-270x270.png">
+    <link href="css/dccx.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body style="background-color:#1F2429;">
+    <div id="loader" onclick="display()" style="visibility: hidden;">
+        <div id="framediv">
+            <div id="customizer-container">
+                <button type="button" id="customizer" onmousedown="video('scene-bedroom.html');customHide()">Customizer</button>
+            </div>
+            <iframe id="360iframe" class="example__iframe" width="100%" height="100%" allowfullscreen="yes" scrolling="no" allowvr="no" src="scene-bedroom.html" frameborder="0"></iframe>
+            <div id="main-container">
+                <div class="top-menu"></div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Spaces</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#" onclick="counterSwap('images/hickory.jpg')">Office</a>
+                            <a class="dropdown-item" href="#">Lab</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="menu-ui2" id="menu">
+                    <div class="bottom-menu">
+                        <button type="button" id="btn-left" onmousedown="video('scene-bedroom.html');menuHide()">Walkthrough</button>
+                        <button type="button" id="btn-right" onmousedown="display()">Floorplan</button>
+                        <div id="home-button-div"><a href="https://www.dcc-x.com"><img id="home-button" src="images/DCC-X%20logo%20horizontal.png"></a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+                <script type="text/javascript">
+            var iframe = document.getElementById("360iframe");
+
+            function floorSwap(imgName) {
+                iframe.contentWindow.document.querySelector("#floors").setAttribute("src", imgName);
+            }
+
+        </script>
+</body>
+
+</html>

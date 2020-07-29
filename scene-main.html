@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VRX Designer</title>	 
+
+
+	  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+	    <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script> 
+	    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
+	    <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+	  <script src="js/aframe.js"></script>
+  	  <link href="/css/dccx.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<link rel="icon" href="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-32x32.png" sizes="32x32">	  
+<link rel="icon" href="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-180x180.png">
+<meta name="msapplication-TileImage" content="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-270x270.png">	  
+  </head>
+  <body>	  
+	  <div id="vrwindow">
+    <a-scene raycaster="objects:.clickable" cursor="rayOrigin: mouse" loading-screen="dotsColor:white;backgroundColor:#99cc33;">
+      <a-assets>
+		<!--<img id="main-base" crossorigin="" src="images/living2.jpg">	-->	
+		<img id="hawthorne" crossorigin="" src="/images/hawthorne-floor.jpg">		  
+  
+		</a-assets>
+
+
+		<a-sky id="floors" src="#hawthorne" rotation="0 -90 0" transparent="true" alpha-test="0.5"></a-sky> 	
+		<!--<a-sky id="bigimage" src="images/living2.jpg" rotation="0 -90 0"></a-sky> -->	
+		
+		
+		<a-image class="clickable" position="-4.3 -.4 -5.5" navigate-on-click="url: guest.html" src="#hotspot-bedroom" look-at="[camera]">
+      		</a-image>
+		<a-image class="clickable" position="-8.5 -1 0" navigate-on-click="url: bedroom.html" src="#hotspot-bedroom" look-at="[camera]">
+      		</a-image>		
+<a-entity id="cam" camera="fov: 65"  rotation="0 -15 0" zoom="0" look-controls="reverseMouseDrag:true">
+	<!--<a-animation attribute="rotation" begin="idle" easing="linear" dur="80000" to="0 -360 0" repeat="indefinite"></a-animation>-->
+	</a-entity>
+    </a-scene>  
+	  </div>
+	  
+<script>window.addEventListener("wheel", event => {
+    const delta = Math.sign(event.wheelDelta);
+    //getting the mouse wheel change (120 or -120 and normalizing it to 1 or -1)
+    var mycam=document.getElementById('cam').getAttribute('camera');
+    var finalZoom=document.getElementById('cam').getAttribute('camera').zoom+delta;
+    //limiting the zoom so it doesnt zoom too much in or out
+    if(finalZoom<1)
+      finalZoom=1;
+    if(finalZoom>4)
+      finalZoom=4;  
+
+    mycam.zoom=finalZoom;
+    //setting the camera element
+    document.getElementById('cam').setAttribute('camera',mycam);
+  });
+</script>
+
+  </body>
+</html>
