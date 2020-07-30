@@ -112,15 +112,17 @@ html, body {
   padding-bottom: 0%;
 }*/
 
-.menu-ui {
-	background: rgba(0,0,0, .6);
-	width:11vw;
-	height:calc(90vh + 12px);
-	left:calc(89vw - 4px);
-	top:calc(-90vh + 12px);
-	border-left:solid 4px #1f2429;
-	position:relative;
-	overflow:hidden;
+#top {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid;
+    padding: 1rem 3rem;
 }
 #menu-container {
 	position:relative;

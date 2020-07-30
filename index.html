@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VR Designer</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/jut6viq.css">
     <link rel="icon" href="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-32x32.png" sizes="32x32">
     <link rel="icon" href="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-192x192.png" sizes="192x192">
     <link rel="apple-touch-icon-precomposed" href="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-180x180.png">
     <meta name="msapplication-TileImage" content="https://dcc-x.com/wp-content/uploads/2019/02/cropped-DCC-X-logo_X-mark-270x270.png">
     <link href="css/dccx.css" rel="stylesheet" type="text/css">
-
+    <script src="https://kit.fontawesome.com/3be35fc083.js" crossorigin="anonymous"></script>
 </head>
 
 <body style="background-color:#1F2429;">
@@ -22,24 +22,85 @@
             <div id="customizer-container">
                 <button type="button" id="customizer" onmousedown="video('scene-bedroom.html');customHide()">Customizer</button>
             </div>
-            <iframe id="360iframe" class="example__iframe" width="100%" height="100%" allowfullscreen="yes" scrolling="no" allowvr="no" src="scene-bedroom.html" frameborder="0"></iframe>
-            <div class="top-menu">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Spaces</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#" onclick="floorSwap('images/hickory.jpg')">Office</a>
-                            <a class="dropdown-item" href="#">Lab</a>
-                        </div>
-                    </li>
-                </ul>
+            <iframe id="360iframe" class="example__iframe" width="100%" height="100%" allowfullscreen="yes" scrolling="no" allowvr="no" src="scene.html" frameborder="0"></iframe>
+            <div class="menu-ui1" id="top">
+                <div class="top-menu">
+                    <ul class="nav nav-tabs fitouts">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Spaces<i class="far fa-building"></i></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item active" href="#">Office</a>
+                                <a class="dropdown-item disabled" href="#" onclick="fitout('images/hawthorne-floor.jpg')">Lab</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-tabs fitouts">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Fitouts<i class="fas fa-couch"></i></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item active" href="#">Shell</a>
+                                <a class="dropdown-item" href="#" onclick="fitout('images/Office_Furniture_On.jpg')">Furnished</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-tabs fitouts">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" onclick="openContact()">Contact an Agent<i class="far fa-user"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
             </div>
+
             <div class="menu-ui2" id="menu">
                 <div class="bottom-menu">
-                    <button type="button" id="btn-left" onmousedown="video('scene-bedroom.html');menuHide()">Walkthrough</button>
-                    <button type="button" id="btn-right" onmousedown="display()">Floorplan</button>
-                    <div id="home-button-div"><a href="https://www.dcc-x.com"><img id="home-button" src="images/DCC-X%20logo%20horizontal.png"></a> </div>
+                    <ul class="nav nav-tabs" id="bottom-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" type="button" data-toggle="modal" data-target="#video">Walkthrough<i class="fas fa-shoe-prints"></i></a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Floorplans<i class="far fa-map"></i></a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" type="button" data-toggle="modal" data-target="#details">Details<i class="far fa-file-alt"></i></a></li>
+                    </ul>
+                    <div id="home-button-div"><a href="https://www.dcc-x.com"><img id="home-button" src="images/logo.svg"></a> </div>
                 </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+                            <iframe id="flyer-popup" src="flyer.html" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="video" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+                            <iframe src="https://player.vimeo.com/video/326855113?autoplay=1" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+        <div id="contact-form-container"><i class="far fa-window-close" onclick="openContact()"></i>
+            <div id="contact-form">
+                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                <script>
+                    hbspt.forms.create({
+                        portalId: "7290512",
+                        formId: "3a2f7e66-6ea9-4c5c-acfa-b93a2ca60596"
+                    });
+
+                </script>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -47,9 +108,24 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <script type="text/javascript">
             var iframe = document.getElementById("360iframe");
+            var header = document.getElementsByClassName("fitouts");
+            var btns = header.getElementsByClassName("dropdown-item");
 
-            function floorSwap(imgName) {
+            function fitout(imgName) {
                 iframe.contentWindow.document.querySelector("#floors").setAttribute("src", imgName);
+            }
+
+        </script>
+        <script type="text/javascript">
+            $('.dropdown-menu a').click(function() {
+                $(this).closest('a').addClass('active').siblings().removeClass('active');
+            });
+
+        </script>
+        <script type="text/javascript">
+            function openContact() {
+                var element = document.getElementById("contact-form-container");
+                element.classList.toggle("contact-open");
             }
 
         </script>
